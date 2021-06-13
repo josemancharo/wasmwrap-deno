@@ -1,0 +1,7 @@
+{
+    "scripts": {
+        "execute": "deno run --allow-read --allow-write --allow-net --allow-run src/wasmwrap.ts",
+        "bundle": "deno bundle src/wasmwrap.ts dist/wasmwrap.js",
+        "execute-dist": "deno run --allow-read --allow-write --allow-net --allow-run dist/wasmwrap.ts"
+    }
+}

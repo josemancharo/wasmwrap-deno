@@ -41,12 +41,9 @@ ${data.typescript
 }
 
 export function renderCode(data: RenderData): string {
-    // Export prefix for variables and functions (ESM)
-    const E = data.module === "esm" ? `export `: ``;
 
     return `// ${HEADER_WARNING_COMMENT}
-${data.includeDecode ? renderDecodeFunction(data, E) : ``}
-${E}const base64 = "${data.base64Wasm}";
-${data.includeDecode ? `${E}const buffer = decode(base64);`: ``}
-${data.module === "commonjs"? `module.exports = { base64${data.includeDecode?`, buffer, decode`:``} };\n` :``}`
-}
+${data.includeDecode ? renderDecodeFunction(data, "export ") : ``}
+export const base64 = "${data.base64Wasm}";
+${data.includeDecode ? `export const buffer = decode(base64);`: ``}
+`}
